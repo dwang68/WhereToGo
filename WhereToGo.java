@@ -2,13 +2,17 @@ package com.example.dalinwang.wheretogo;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import android.view.Menu;
+import android.view.MenuInflater;
 
-public class MapsActivity extends FragmentActivity {
+public class WhereToGo extends ActionBarActivity{
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
@@ -23,6 +27,14 @@ public class MapsActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     /**
@@ -60,6 +72,44 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(34.42, -119.71)).
+                title("Santa Barbara")).setDraggable(true);
+
+        mMap.setOnMarkerClickListener(
+                new GoogleMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(Marker marker) {
+                        marker.setSnippet("location: " + marker.getPosition().toString());
+
+
+                            marker.showInfoWindow();
+
+                        return false;
+                    }
+                }
+        );
+
+        mMap.setOnMarkerDragListener(
+                new GoogleMap.OnMarkerDragListener() {
+                    @Override
+                    public void onMarkerDragStart(Marker marker) {
+                        System.out.println("Start position:" + marker.getPosition().toString());
+                    }
+
+                    @Override
+                    public void onMarkerDrag(Marker marker) {
+
+                    }
+
+                    @Override
+                    public void onMarkerDragEnd(Marker marker) {
+                            System.out.println("End position:" + marker.getPosition().toString());
+                    }
+                }
+        );
+
+
     }
+
+
 }
