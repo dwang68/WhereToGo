@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WhereToGo</string>
+    <string name="title_activity_maps">WhereToGo</string>
+    <string name="action_bar">Actionbar</string>
+    <string name="action_drawline">Draw line</string>
+    <string name="action_droppin">Drop pin</string>
+
+</resources>

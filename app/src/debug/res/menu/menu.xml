@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:appcompat="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_droppin"
+        android:icon="@drawable/ic_action_droppin"
+        android:title="@string/action_droppin"
+        appcompat:showAsAction="always"/>
+
+    <item android:id="@+id/action_drawline"
+        android:icon="@drawable/ic_action_drawline"
+        android:title="@string/action_drawline"
+        appcompat:showAsAction="always"/>
+
+    <item android:id="@+id/action_help"
+        android:title="Help"
+        appcompat:showAsAction="never"/>
+</menu>
