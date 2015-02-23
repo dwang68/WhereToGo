@@ -12,6 +12,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+/**
+ + Application that allows multiple users to connect and draw routes together on a map.
+ + Plan your routes with friends!
+ + @author Dalin Wang
+ + @author Dario Castellanos
+ + */
+
+
 public class WhereToGo extends ActionBarActivity{
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
